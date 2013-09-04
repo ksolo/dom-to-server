@@ -7,14 +7,13 @@ $(document).ready(function () {
     var data = {value: value};
     var url = $(this).attr('action');
 
-    console.log(data);
-
     $.post(url, data, function(response){
-      $('#die').html(response);
-    });
+      console.log(response);
+      function(response){
+        return "<img src='" + response.roll + ".png'>"
+      }(response);
+    }, "json");
   });
-
-
 
 
   // PSEUDO-CODE:
@@ -25,3 +24,4 @@ $(document).ready(function () {
   //   5- when the AJAX post is done, replace the contents of the "#die" DIV in the DOM using jQuery
 
 });
+
