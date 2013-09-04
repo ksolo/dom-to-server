@@ -3,9 +3,9 @@ $(document).ready(function () {
   $('form').submit(function(event){
     event.preventDefault();
 
-    var random = Math.floor(Math.random() * 6) + 1;
-    var data = {value: random};
     var url = $(this).attr('action');
+    var data = $(this).serialize();
+    console.log(data);
 
     $.post(url, data, function(response){
       $('#die').html(response);
