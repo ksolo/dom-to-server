@@ -4,8 +4,10 @@ $(document).ready(function () {
     event.preventDefault();
 
     var random = Math.floor(Math.random() * 6) + 1;
-    var data = {value: random};
+    var data = {value: value};
     var url = $(this).attr('action');
+
+    console.log(data);
 
     $.post(url, data, function(response){
       $('#die').html(response);
